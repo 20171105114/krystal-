@@ -1,0 +1,66 @@
+{\rtf1\ansi\ansicpg936\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fnil\fcharset134 PingFangSC-Regular;}
+{\colortbl;\red255\green255\blue255;\red38\green38\blue38;\red50\green116\blue177;}
+{\*\expandedcolortbl;;\cssrgb\c20000\c20000\c20000;\cssrgb\c24706\c53333\c74902;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf2 \expnd0\expndtw0\kerning0
+#include "{\field{\*\fldinst{HYPERLINK "https://www.baidu.com/s?wd=stdio.h&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao"}}{\fldrslt \cf3 stdio.h}}"#define M 10  //\'b2\'c3\'c5\'d0\'c8\'cb\'ca\'fd\
+#define N 3  //\'b8\'e8\'ca\'d6\'c8\'cb\'ca\'fdstruct sing\
+\{\
+ int final;\
+ int flag;\
+\}singer[N];\
+void main()\
+\{\
+ int i,j,flag=0;\
+ int max=0,min=0,sum=0;\
+ int score[M][N];\
+ sing ss;\
+ for (i=0;i<N;i++)\
+ \{\
+  printf("\'c7\'eb\'b8\'f8\'b5\'da%d\'b8\'f6\'d1\'a1\'ca\'d6\'b4\'f2\'b7\'d6\\n",i+1);\
+  int a = 0;\
+  for (j=0;j<M;j++)\
+  \{   \
+   scanf("%d",&a);\
+   score[i][j] = a;\
+   \
+  \}\
+  max = min = score[i][1];\
+  for (j=0;j<M;j++)\
+  \{\
+   sum = sum + score[i][j];\
+   if (score[i][j]>max)\
+   \{\
+    max = score[i][j];\
+   \}\
+   if (score[i][j]<min)\
+   \{\
+    min = score[i][j];\
+   \}\
+  \}\
+  singer[i].final = (sum - min - max) / (M-2);\
+  singer[i].flag = i+1;\
+  printf("\'c8\'a5\'b5\'f4\'d2\'bb\'b8\'f6\'d7\'ee\'b8\'df\'b7\'d6\'a3\'ac\'c8\'a5\'b5\'f4\'d2\'bb\'b8\'f6\'d7\'ee\'b5\'cd\'b7\'d6\'a3\'ac\'b5\'da%d\'b8\'f6\'d1\'a1\'ca\'d6\'b5\'c4\'b5\'c3\'b7\'d6\'ca\'c7%d\'b7\'d6\\n",i+1,singer[i].final);\
+  sum = 0;\
+ \}\
+ printf("\'d1\'a1\'ca\'d6\'d7\'ee\'d6\'d5\'b3\'c9\'bc\'a8\'c5\'c5\'c3\'fb\'a3\'ba\\n");\
+ for (i=0;i<N-1;i++)\
+ \{\
+  if (singer[i].final<singer[i+1].final)\
+  \{\
+   ss = singer[i];\
+   singer[i] = singer[i+1];\
+   singer[i+1] = ss;\
+  \}\
+ \}\
+ for (i=0;i<N;i++)\
+ \{\
+  printf("\'b5\'da%d\'c3\'fb: %d\'ba\'c5\'d1\'a1\'ca\'d6\'a3\'ac\'b3\'c9\'bc\'a8\'ce\'aa\'a3\'ba%d\\n",i+1,singer[i].flag,singer[i].final);\
+ \}\
+\}\
+\
+}
